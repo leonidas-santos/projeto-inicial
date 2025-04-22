@@ -1,8 +1,4 @@
-﻿using System.Text.Json;
-using System.Text.Json.Serialization;
-using System.Text.RegularExpressions;
-using System.Xml.Linq;
-
+﻿
 using meu_segundo_projeto.Entidade;
 using meu_segundo_projeto.Repositorio;
 using meu_segundo_projeto.Servico;
@@ -13,7 +9,7 @@ namespace meu_segundo_projeto
     {
         static void Main(string[] args)
         {
-            PessoaServico pessoaServico = new(BuscarCaminhoBanco());
+            PessoaServico pessoaServico = new(BuscarStringConexao("bancoDados"));
 
             Pessoa pessoaFicticia = new Pessoa()
             {
@@ -34,7 +30,7 @@ namespace meu_segundo_projeto
             Console.WriteLine(pessoa.InformacoesPessoais());
         }
 
-        private static string BuscarCaminhoBanco(string nomeArquivo)
+        private static string BuscarStringConexao(string nomeArquivo)
         {
             string diretorioBancoDados = Path.Combine(Environment.CurrentDirectory, "BancoDeDados");
 
