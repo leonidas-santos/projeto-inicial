@@ -7,25 +7,33 @@ namespace meu_segundo_projeto
     {
         static void Main(string[] args)
         {
-            PessoaServico pessoaServico = new(BuscarStringConexao("bancoDados"));
-
-            pessoaServico.Adicionar( new()
-            {
-                Altura = 160,
-                CPF = "123.123.123-45",
-                DataNascimento = new DateTime(1850, 1, 30),
-                Nome = "Matusalém",
-                Sobrenome = "Messias",
-                Peso = 42,
-                Sexo = Enum.Sexo.Masculino,
-                TipoSanguineo = Enum.TipoSanguineo.NaoInformado
-            });
-
-            Pessoa pessoa = pessoaServico.BuscarPeloCPF("123.123.123-45");
-
-            Console.WriteLine(pessoa.InformacoesPessoais());
+           Teste();
         }
 
+        public static void Teste()
+        {
+           
+            PessoaServico pessoaServico = new(BuscarStringConexao("bancoDados"));
+
+ pessoaServico.Adicionar( new()
+ {
+     Altura = 160,
+     CPF = "123.123.123-45",
+     DataNascimento = new DateTime(1850, 1, 30),
+     Nome = "Matusalém",
+     Sobrenome = "Messias",
+     Peso = 42,
+     Sexo = Enum.Sexo.Masculino,
+     TipoSanguineo = Enum.TipoSanguineo.NaoInformado
+ });
+
+ Pessoa pessoa = pessoaServico.BuscarPeloCPF("123.123.123-45");
+
+ Console.WriteLine(pessoa.InformacoesPessoais());
+           
+            
+        }
+        
         private static string BuscarStringConexao(string nomeArquivo)
         {
             string diretorioBancoDados = Path.Combine(Environment.CurrentDirectory, "BancoDeDados");
