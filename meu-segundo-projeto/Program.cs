@@ -7,9 +7,14 @@ namespace meu_segundo_projeto
     {
         static void Main(string[] args)
         {
+            Teste();
+        }
+
+        public static void Teste()
+        {
             PessoaServico pessoaServico = new(BuscarStringConexao("bancoDados"));
 
-            pessoaServico.Adicionar( new()
+            pessoaServico.Adicionar(new()
             {
                 Altura = 160,
                 CPF = "123.123.123-47",
