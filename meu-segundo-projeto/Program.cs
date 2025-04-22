@@ -1,6 +1,4 @@
-﻿
-using meu_segundo_projeto.Entidade;
-using meu_segundo_projeto.Repositorio;
+﻿using meu_segundo_projeto.Entidade;
 using meu_segundo_projeto.Servico;
 
 namespace meu_segundo_projeto
@@ -11,7 +9,7 @@ namespace meu_segundo_projeto
         {
             PessoaServico pessoaServico = new(BuscarStringConexao("bancoDados"));
 
-            Pessoa pessoaFicticia = new Pessoa()
+            pessoaServico.Adicionar( new()
             {
                 Altura = 160,
                 CPF = "123.123.123-45",
@@ -21,9 +19,7 @@ namespace meu_segundo_projeto
                 Peso = 42,
                 Sexo = Enum.Sexo.Masculino,
                 TipoSanguineo = Enum.TipoSanguineo.NaoInformado
-            };
-
-            pessoaServico.Adicionar(pessoaFicticia);
+            });
 
             Pessoa pessoa = pessoaServico.BuscarPeloCPF("123.123.123-45");
 
@@ -39,13 +35,7 @@ namespace meu_segundo_projeto
             string caminhoCompleto = Path.Combine(diretorioBancoDados, $"{nomeArquivo}.json");
 
             if (!Path.Exists(caminhoCompleto))
-            {
-                FileStream file = File.Create(caminhoCompleto);
-
-                //Quando alguem abre um arquivo, ele não pode ser aberto por outra pessoa/programa
-                //dessa forma precisamos fechar/encerrar o processo do arquivo.
-                file.Dispose();
-            }
+                File.Create(caminhoCompleto).Dispose();
 
             return caminhoCompleto;
         }
