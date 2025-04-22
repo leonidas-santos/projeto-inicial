@@ -12,9 +12,9 @@ namespace meu_segundo_projeto
             pessoaServico.Adicionar( new()
             {
                 Altura = 160,
-                CPF = "123.123.123-45",
+                CPF = "123.123.123-47",
                 DataNascimento = new DateTime(1850, 1, 30),
-                Nome = "Matusalém",
+                Nome = "Geremias",
                 Sobrenome = "Messias",
                 Peso = 42,
                 Sexo = Enum.Sexo.Masculino,
