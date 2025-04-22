@@ -8,6 +8,8 @@ namespace meu_segundo_projeto
         static void Main(string[] args)
         {
             Teste();
+
+            //alterado aqui
         }
 
         public static void Teste()
